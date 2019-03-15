@@ -1,0 +1,32 @@
+{
+  "name": "@ma.vu/pkgserver",
+  "version": "1.0.0",
+  "description": "Serving from heroku",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.js",
+    "start.js"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node start.js",
+    "deploy": "./sync && git push heroku master",
+    "sync": "./sync",
+    "local": "heroku local web",
+    "logs": "heroku logs",
+    "logs:follow": "npm run logs -- --tail"
+  },
+  "keywords": [],
+  "author": "Marko Vujanic",
+  "license": "MIT"
+}
