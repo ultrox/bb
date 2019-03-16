@@ -18,7 +18,7 @@ const bodyParser = require('body-parser')
 const logger = require('morgan')
 const pkginfo = require('@ma.vu/pkginfo')
 
-// app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(bodyParser.json())
 app.use(logger('combined'))
