@@ -5,10 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "index.js",
-    "start.js"
-  ],
+  "files": ["index.js", "start.js"],
   "main": "index.js",
   "dependencies": {
     "@ma.vu/pkginfo": "^5.1.2",
@@ -26,7 +23,8 @@
     "sync": "./sync",
     "local": "heroku local web",
     "logs": "heroku logs",
-    "logs:follow": "npm run logs -- --tail"
+    "logs:follow": "npm run logs -- --tail",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "Marko Vujanic",
