@@ -31,6 +31,9 @@ app.use(
 
 // app.get('*', (req, res) => res.send('.'))
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')))
+
 app.get('/info/:name', async (req, res) => {
   const options = [
     'homepage',

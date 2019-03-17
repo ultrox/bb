@@ -126,9 +126,9 @@ class App extends Component {
             onClick={async () => {
               const result = await fetchStuff().catch(e => {})
               console.log(result)
-            }}
-          />
-          Get Local
+            }}>
+            Get Local
+          </button>
           <button
             type="click"
             onClick={() => this.getMyMyPackages(dependencies)}>
