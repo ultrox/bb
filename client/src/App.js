@@ -42,7 +42,6 @@ const parseGitRepoUrl = repo => {
 }
 
 const Package = props => {
-  console.log(props)
   return (
     <li>
       <h2>
@@ -51,10 +50,6 @@ const Package = props => {
         </a>
       </h2>
       <p>{props.description}</p>
-      <p>
-        version: {props.version} latest: {props.latest}
-      </p>
-      <Dep /> {props.dependencies} <DevDep /> {props.devDependencies}
     </li>
   )
 }
