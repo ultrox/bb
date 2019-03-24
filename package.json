@@ -1,30 +1,29 @@
 {
-  "name": "@ma.vu/pkgserver",
+  "name": "management",
   "version": "1.0.0",
-  "description": "Serving from heroku",
+  "description": "Manages client & server parts",
   "publishConfig": {
     "access": "public"
   },
-  "files": ["index.js", "start.js"],
+  "files": [
+    "index.js",
+    "start.js"
+  ],
   "main": "index.js",
-  "dependencies": {
-    "@ma.vu/pkginfo": "^5.1.2",
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "express": "^4.16.4",
-    "morgan": "^1.9.1",
-    "node-fetch": "^2.3.0"
+  "devDependencies": {
+    "as-a": "^1.3.1",
+    "concurrently": "^4.1.0",
+    "npm-run-all": "^4.1.5"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node start.js",
-    "deploy": "./sync && git push heroku master",
-    "sync": "./sync",
-    "local": "heroku local web",
-    "logs": "heroku logs",
-    "logs:follow": "npm run logs -- --tail",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "dev": "as-a DEV npm run dev:core --silent",
+    "dev:core": "concurrently --names \"server,client\" --prefix \"[{name}]\" --prefix-colors \"bgCyan.reset.bold,bgGreen.reset.bold\" \"npm run dev:server --silent\" \"npm run dev:client --silent\"",
+    "dev:client": "cd client && npm run dev --silent",
+    "dev:server": "cd server && npm start --silent",
+    "build": "concurrently --names \"server,client\" --prefix \"[{name}]\" --prefix-colors \"bgCyan.reset.bold,bgGreen.reset.bold\" \"npm run build:server --silent\" \"npm run build:client --silent\"",
+    "build:client": "cd client && npm run build --silent",
+    "build:server": "cd server && npm run build --silent"
   },
   "keywords": [],
   "author": "Marko Vujanic",
