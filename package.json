@@ -21,7 +21,7 @@
     "dev": "as-a DEV npm run dev:core --silent",
     "dev:core": "concurrently --names \"server,client\" --prefix \"[{name}]\" --prefix-colors \"bgCyan.reset.bold,bgGreen.reset.bold\" \"npm run dev:server --silent\" \"npm run dev:client --silent\"",
     "dev:client": "cd client && npm run dev --silent",
-    "dev:server": "cd server && npm start --silent",
+    "dev:server": "cd server && npm run dev --silent",
     "build": "concurrently --names \"server,client\" --prefix \"[{name}]\" --prefix-colors \"bgCyan.reset.bold,bgGreen.reset.bold\" \"npm run build:server --silent\" \"npm run build:client --silent\"",
     "build:client": "cd client && npm run build --silent",
     "build:server": "cd server && npm run build --silent"
