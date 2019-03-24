@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -e
-source variables.env
-# setting token as variable for heroku env
-# should loop over variables.env
-# heroku config:set BOT_TOKEN=$BOT_TOKEN
